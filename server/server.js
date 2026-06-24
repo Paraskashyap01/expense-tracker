@@ -14,6 +14,11 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/expenses",expenseRoutes);
 
+app.get("/", (req, res) => {
+  res.json({
+    message: "Expense Tracker API is running",
+  });
+});
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
